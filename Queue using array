@@ -1,0 +1,72 @@
+#include <stdio.h>
+int main()
+{
+	int A[10],ele,i,F=-1,R=F,ch;
+	do
+	{
+		printf("Enter your choice\n");
+		printf("Press 1 for insertion\nPress 2 for deletion\nPress 3 for display\nPress 4 gor quit\n");
+		scanf("%d",&ch);
+		if(ch==1)  //insertion
+		{
+			if(R==9)
+			{
+				printf("Insertion is not possible\n");
+			}
+			else
+			{
+				if(F==-1 && R==-1)
+				{
+					F=0;
+					R=0;
+				    printf("Enter the element\n");
+				    scanf("%d",&ele);
+				    A[R]=ele;
+				}
+				else
+				{
+					R++;
+					printf("Enter the element\n");
+				    scanf("%d",&ele);
+				    A[R]=ele;
+				}
+			}
+		}
+		else if(ch==2)  //deletion
+		{
+			if(F>R)
+			{
+				printf("Deletion is not possible\n");
+			}
+			else
+			{
+				printf("%d is deleted\n",A[F]);
+				F++;
+			}
+		}
+		else if(ch==3)  //display
+		{
+			if(F>R)
+			{
+				printf("No element in Queue\n");
+			}
+			else
+			{
+				for(i=F;i<=R;i++)
+				{
+					printf("%d\t",A[i]);
+				}
+				printf("\n");
+			}
+		}
+		else if(ch==4)  //quit
+		{
+			exit(0);
+		}
+		else
+		{
+			printf("Wrong choice\n");
+		}
+	}while(ch!=4);
+	return 0;
+}
